@@ -1,12 +1,19 @@
+
+
+H= -DHIDEIT
+H=
+
+
+
 all: fg gf
 	./fg
 	./gf
 
 f.o: f.c
-	cc -fPIC --shared -c $<
+	cc ${H} -fPIC --shared -c $<
 
 g.o: g.c
-	cc -fPIC -c $<
+	cc ${H} -fPIC -c $<
 
 fg: fg.c f.o g.o
 	cc -o $@ $< f.o g.o
